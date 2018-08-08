@@ -58,7 +58,7 @@ select {
 /* Position the "next button" to the right */
 .next {
   right: 0;
-  border-radius: 3px 0 0 3px;
+  border-radius: 3px 0 0 3px; 
 }
 
 /* On hover, add a black background color with a little bit see-through */
@@ -93,17 +93,20 @@ select {
 /* Six columns side by side */
 .column {
   float: left;
-  width: 16.66%;
+  margin: 1px;
+  width: 16%;
 }
 
 /* Add a transparency effect for thumnbail images */
 .demo {
   opacity: 0.6;
+  padding: 8px 12px;
 }
 
 .active,
 .demo:hover {
   opacity: 1;
+  border: 5px solid blue;
 }
 
 select option {

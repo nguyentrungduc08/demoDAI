@@ -189,8 +189,8 @@ $(document).ready(function () {
   $('#levelCapping').val(levelCapping);
   $('#defaultAudioCodec').val(defaultAudioCodec || 'undefined');
 
-  $('h2').append('&nbsp;<a target=_blank href=https://github.com/video-dev/hls.js/releases/tag/v' + Hls.version + '>v' + Hls.version + '</a>');
-  $('#currentVersion').html('Hls version:' + Hls.version);
+  // $('h2').append('&nbsp;<a target=_blank href=https://github.com/video-dev/hls.js/releases/tag/v' + Hls.version + '>v' + Hls.version + '</a>');
+  // $('#currentVersion').html('Hls version:' + Hls.version);
 
   $('#streamURL').val(sourceURL);
 

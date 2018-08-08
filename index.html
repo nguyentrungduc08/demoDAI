@@ -1,10 +1,7 @@
 <!DOCTYPE html>
 <html>
-
   <head>
-
     <meta charset="utf-8"/>
-
     <title>Dynamic Ad Insertion</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
@@ -14,20 +11,14 @@
 
     <link rel="preload" href="dist/hls-demo.js" as="script">
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.3/FileSaver.min.js"></script>
   </head>
 
   <body>
     <div class="header-container">
       <header class="wrapper clearfix">
-        <h1>
-          <a target="_blank" href="https://github.com/video-dev/hls.js">
-            <img src="https://cloud.githubusercontent.com/assets/616833/19739063/e10be95a-9bb9-11e6-8100-2896f8500138.png"/>
-          </a>
-        </h1>
-
         <h2 class="title">
           Dynamic Ad Insertion Demo
         </h2>
@@ -36,75 +27,64 @@
 
 
     <div class="container">
-<!--       <div class="mySlides">
-        <div class="numbertext">1 / 6</div>
-        <img src="i1.jpg" style="width:100%">
-      </div>
-
-      <div class="mySlides">
-        <div class="numbertext">2 / 6</div>
-        <img src="i1.jpg" style="width:100%">
-      </div>
-
-      <div class="mySlides">
-        <div class="numbertext">3 / 6</div>
-        <img src="i1.jpg" style="width:100%">
-      </div>
-    
-      <div class="mySlides">
-        <div class="numbertext">4 / 6</div>
-        <img src="img_lights_wide.jpg" style="width:100%">
-      </div>
-
-      <div class="mySlides">
-        <div class="numbertext">5 / 6</div>
-        <img src="img_nature_wide.jpg" style="width:100%">
-      </div>
-    
-      <div class="mySlides">
-        <div class="numbertext">6 / 6</div>
-        <img src="img_snow_wide.jpg" style="width:100%">
-      </div>
-
-      <div class="caption-container">
-        <p id="caption"></p>
-      </div> -->
-
+      <h4>List Videos</h4>
       <div class="row">
         <div class="column">
-          <img class="demo cursor" src="Resources/videos/i1.jpg" style="width:100%" onclick="currentSlide(1)" alt="The Woods">
+          <img class="demo cursor video" src="Resources/videos/i1.jpg" style="width:100%" onclick="currentVideo(1)" alt="The Woods">
         </div>
         <div class="column">
-          <img class="demo cursor" src="Resources/videos/i3.jpg" style="width:100%" onclick="currentSlide(2)" alt="Cinque Terre">
+          <img class="demo cursor video" src="Resources/videos/i2.jpg" style="width:100%" onclick="currentVideo(2)" alt="Cinque Terre">
         </div>
         <div class="column">
-          <img class="demo cursor" src="Resources/videos/i1.jpg" style="width:100%" onclick="currentSlide(3)" alt="Mountains and fjords">
+          <img class="demo cursor video" src="Resources/videos/i3.jpg" style="width:100%" onclick="currentVideo(3)" alt="Mountains and fjords">
+        </div>  
+        <div class="column">
+          <img class="demo cursor video" src="Resources/videos/i4.jpg" style="width:100%" onclick="currentVideo(4)" alt="Northern Lights">
         </div>
         <div class="column">
-          <img class="demo cursor" src="Resources/videos/i3.jpg" style="width:100%" onclick="currentSlide(4)" alt="Northern Lights">
+          <img class="demo cursor video" src="Resources/videos/i1.jpg" style="width:100%" onclick="currentVideo(5)" alt="Mountains and fjords">
         </div>
         <div class="column">
-          <img class="demo cursor" src="Resources/videos/i1.jpg" style="width:100%" onclick="currentSlide(3)" alt="Mountains and fjords">
-        </div>
-        <div class="column">
-          <img class="demo cursor" src="Resources/videos/i3.jpg" style="width:100%" onclick="currentSlide(4)" alt="Northern Lights">
+          <img class="demo cursor video" src="Resources/videos/i1.jpg" style="width:100%" onclick="currentVideo(5)" alt="Mountains and fjords">
         </div>
       </div>
     </div>
 
+    <div class="container">
+      <h4>List Ads</h4>
+      <div class="row">
+        <div class="column">
+          <img class="demo cursor ads" src="Resources/ads/1.jpg" style="width:100%" onclick="currentAd(1)" alt="The Woods">
+        </div>
+        <div class="column">
+          <img class="demo cursor ads" src="Resources/ads/2.jpg" style="width:100%" onclick="currentAd(2)" alt="Cinque Terre">
+        </div>
+        <div class="column">
+          <img class="demo cursor ads" src="Resources/ads/2.jpg" style="width:100%" onclick="currentAd(3)" alt="Mountains and fjords">
+        </div>
+        <div class="column">
+          <img class="demo cursor ads" src="Resources/ads/3.jpg" style="width:100%" onclick="currentAd(4)" alt="Northern Lights">
+        </div>
+        <div class="column">
+          <img class="demo cursor ads" src="Resources/ads/1.jpg" style="width:100%" onclick="currentAd(5)" alt="Mountains and fjords">
+        </div>
+        <div class="column">
+          <img class="demo cursor ads" src="Resources/ads/1.jpg" style="width:100%" onclick="currentAd(5)" alt="Mountains and fjords">
+        </div>
+      </div>
+
+<!--       <div class="caption-container">
+        <p id="caption"></p>
+      </div> -->
+    </div>
+
+    <div>
+      <br>
+    </div>
+
     <div class="main-container">
-      <header>
-        <p>
-          Test your HLS streams in all supported browsers (Chrome/Firefox/IE11/Edge/Safari).
-        </p>
-        <p>
-          Advanced controls are available at the bottom of this page.
-        </p>
-        <p>
-          <b>Looking for a more <i>basic</i> usage example? Go <a href="basic-usage.html">here</a>.</b><br>
-        </p>
-      </header>
-      <div id="controls">
+
+<!--       <div id="controls">
 
         <div id="customButtons"></div>
 
@@ -157,7 +137,7 @@
         <label class="innerControls">
           Player size:
           <select id="videoSize" style="float:right;">
-            <option value="240">Tiny (240p)</option>
+            <option value="240">` (240p)</option>
             <option value="384">Small (384p)</option>
             <option value="480">Medium (480p)</option>
             <option value="720" selected>Large (720p)</option>
@@ -175,15 +155,15 @@
           <span id="StreamPermalink" style="width: 50%"></span>
         </label>
 
-      </div>
+      </div> -->
 
-      <video id="video" controls autoplay class="videoCentered"></video>
+      <video id="video" width="640" height="360" controls autoplay class="videoCentered" poster="Resources/videos/i1.jpg"></video>
 
       <br>
 
       <canvas id="bufferedCanvas" height="15" class="videoCentered" onclick="onClickBufferedRange(event);"></canvas>
 
-      <br><br>
+     <!--  <br><br>
 
       <label class="center">Status:</label>
       <pre id="statusOut" class="center" style="white-space: pre-wrap;"></pre>
@@ -277,9 +257,9 @@
                 </tr>
               </table>
         </center>
-      </div>
+      </div> -->
 
-      <div class="center" id='audioTrackControlTab'>
+<!--       <div class="center" id='audioTrackControlTab'>
         <h4>Audio-tracks</h4>
         <table>
           <tr>
@@ -331,7 +311,7 @@
         <pre id="bufferedOut"></pre>
         <label>General stats:</label>
         <pre id='statisticsOut'></pre>
-      </div>
+      </div> -->
 
     </div>
 
@@ -367,28 +347,58 @@
       })();
 
       var videoIndex = 1;
+      var flagShowAd = 0;
 
-      function currentSlide(n) {
-        showSlides(slideIndex = n);
+      function currentVideo(n) {
+        flagShowAd = 1;
+        selectVideo(slideIndex = n);
       }
 
-      function showSlides(n) {
+      function currentAd(n) {
+        if (flagShowAd == 1){
+          selectAd(slideIndex = n);
+        }
+      }
+
+      function selectAd(n) {
         var i;
-        var slides = document.getElementsByClassName("mySlides");
-        var dots = document.getElementsByClassName("demo");
-        var captionText = document.getElementById("caption");
-        if (n > slides.length) {slideIndex = 1}
-        if (n < 1) {slideIndex = slides.length}
-        for (i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";
+        var ads = document.getElementsByClassName("ads");
+
+        for (i = 0; i < ads.length; i++) {
+            ads[i].className = ads[i].className.replace(" active", "");
         }
-        for (i = 0; i < dots.length; i++) {
-            dots[i].className = dots[i].className.replace(" active", "");
-        }
-        slides[slideIndex-1].style.display = "block";
-        dots[slideIndex-1].className += " active";
-        captionText.innerHTML = dots[slideIndex-1].alt;
+
+        ads[n-1].className += " active";
       }
+
+
+      function selectVideo(n) {
+        var i;
+        var videos = document.getElementsByClassName("video");
+
+        for (i = 0; i < videos.length; i++) {
+            videos[i].className = videos[i].className.replace(" active", "");
+        }
+
+        videos[n-1].className += " active";
+        var imgVideo = document.getElementById("video");
+        imgVideo.poster = videos[n-1].src;
+      }
+
+      function playVideo() {
+        var video = document.getElementById("video");
+        var videoSrcHls = "http://127.0.0.1:9090/test.m3u8";
+
+        if(Hls.isSupported()) {
+          var hls = new Hls();  
+          hls.loadSource(videoSrcHls);
+          hls.attachMedia(video);
+          hls.on(Hls.Events.MANIFEST_PARSED,function() {
+            video.play();
+          });
+        }
+      }
+
 
     </script>
   </body>
