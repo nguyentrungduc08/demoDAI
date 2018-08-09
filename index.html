@@ -19,57 +19,72 @@
   <body>
     <div class="header-container">
       <header class="wrapper clearfix">
-        <h2 class="title">
+        <h2 >
           Dynamic Ad Insertion Demo
         </h2>
       </header>
     </div>
 
 
-    <div class="container">
-      <h4>List Videos</h4>
+    <div class="container" id="listVideos">
+      <!-- <h4>List Videos</h4> -->
+      <span class="label label-primary">List Videos</span>
       <div class="row">
         <div class="column">
-          <img class="demo cursor video" src="Resources/videos/i1.jpg" style="width:100%" onclick="currentVideo(1)" alt="The Woods">
+          <img class="demoVideo cursor video img-rounded" src="Resources/videos/i1.jpg" style="width:100%" onclick="currentVideo(1)" alt="video 1">
+          <figcaption style="text-align: right;">04:11</figcaption>
+        </div>
+
+        <div class="column">
+          <img class="demoVideo cursor video img-rounded" src="Resources/videos/i2.jpg" style="width:100%" onclick="currentVideo(2)" alt="video 2">
+          <figcaption style="text-align: right;">04:11</figcaption>
         </div>
         <div class="column">
-          <img class="demo cursor video" src="Resources/videos/i2.jpg" style="width:100%" onclick="currentVideo(2)" alt="Cinque Terre">
-        </div>
-        <div class="column">
-          <img class="demo cursor video" src="Resources/videos/i3.jpg" style="width:100%" onclick="currentVideo(3)" alt="Mountains and fjords">
+          <img class="demoVideo cursor video img-rounded" src="Resources/videos/i3.jpg" style="width:100%" onclick="currentVideo(3)" alt="video 3">
+          <figcaption style="text-align: right;">04:11</figcaption>
         </div>  
         <div class="column">
-          <img class="demo cursor video" src="Resources/videos/i4.jpg" style="width:100%" onclick="currentVideo(4)" alt="Northern Lights">
+          <img class="demoVideo cursor video img-rounded" src="Resources/videos/i4.jpg" style="width:100%" onclick="currentVideo(4)" alt="video 4">
+          <figcaption style="text-align: right;">04:11</figcaption>
         </div>
         <div class="column">
-          <img class="demo cursor video" src="Resources/videos/i1.jpg" style="width:100%" onclick="currentVideo(5)" alt="Mountains and fjords">
+          <img class="demoVideo cursor video img-rounded" src="Resources/videos/i1.jpg" style="width:100%" onclick="currentVideo(5)" alt="video 5">
+          <figcaption style="text-align: right;">04:11</figcaption>
         </div>
         <div class="column">
-          <img class="demo cursor video" src="Resources/videos/i1.jpg" style="width:100%" onclick="currentVideo(5)" alt="Mountains and fjords">
+          <img class="demoVideo cursor video img-rounded" src="Resources/videos/i1.jpg" style="width:100%" onclick="currentVideo(6)" alt="video 6">
+          <figcaption style="text-align: right;">04:11</figcaption>
         </div>
       </div>
     </div>
 
-    <div class="container">
-      <h4>List Ads</h4>
+    <div class="container" id="listAds" style="pointer-events:none">
+      <!-- <h4>List Ads</h4> -->
+      <span class="label label-success">List Ads</span>
       <div class="row">
         <div class="column">
-          <img class="demo cursor ads" src="Resources/ads/1.jpg" style="width:100%" onclick="currentAd(1)" alt="The Woods">
+          <img class="demoAds cursor ads img-rounded" src="Resources/ads/1.jpg" style="width:100%" id="1" alt="ads-1" title="abc">
+          <figcaption style="text-align: right;" alt="04:11" id="ads-1">04:11</figcaption>
         </div>
         <div class="column">
-          <img class="demo cursor ads" src="Resources/ads/2.jpg" style="width:100%" onclick="currentAd(2)" alt="Cinque Terre">
+          <img class="demoAds cursor ads img-rounded" src="Resources/ads/2.jpg" style="width:100%" id="2" alt="ads-2">
+          <figcaption style="text-align: right;" alt="02:13" id="ads-2">02:13</figcaption>
         </div>
         <div class="column">
-          <img class="demo cursor ads" src="Resources/ads/2.jpg" style="width:100%" onclick="currentAd(3)" alt="Mountains and fjords">
+          <img class="demoAds cursor ads img-rounded" src="Resources/ads/2.jpg" style="width:100%" id="3" alt="ads-3">
+          <figcaption style="text-align: right;" alt="04:11" id="ads-3">04:11</figcaption>
         </div>
         <div class="column">
-          <img class="demo cursor ads" src="Resources/ads/3.jpg" style="width:100%" onclick="currentAd(4)" alt="Northern Lights">
+          <img class="demoAds cursor ads img-rounded" src="Resources/ads/3.jpg" style="width:100%" id="4" alt="ads-4">
+          <figcaption style="text-align: right;" alt="04:11" id="ads-4">04:11</figcaption>
         </div>
         <div class="column">
-          <img class="demo cursor ads" src="Resources/ads/1.jpg" style="width:100%" onclick="currentAd(5)" alt="Mountains and fjords">
+          <img class="demoAds cursor ads img-rounded" src="Resources/ads/1.jpg" style="width:100%" id="5" alt="ads-5">
+          <figcaption style="text-align: right;" alt="04:11" id="ads-5">04:11</figcaption>
         </div>
         <div class="column">
-          <img class="demo cursor ads" src="Resources/ads/1.jpg" style="width:100%" onclick="currentAd(5)" alt="Mountains and fjords">
+          <img class="demoAds cursor ads img-rounded" src="Resources/ads/1.jpg" style="width:100%" id="6" alt="ads-6">
+          <figcaption style="text-align: right;" alt="00:00" id="ads-6">04:11</figcaption>
         </div>
       </div>
 
@@ -80,238 +95,48 @@
 
     <div>
       <br>
+      <br>
     </div>
 
-    <div class="main-container">
+    <div class="main-container container">
+      <div class="col-xs-7">  
+        <video id="video" width="640" height="360" controls autoplay poster="Resources/videos/i1.jpg"></video>
 
-<!--       <div id="controls">
+        <br>
 
-        <div id="customButtons"></div>
+        <div style="height: 10px; background-color: red; width: 640px">
+            
+        </div>
 
-        <select id="streamSelect" class="innerControls">
-          <option value="" selected>Select a test-stream from drop-down menu. Or enter custom URL below</option>
-        </select>
+        <br>
 
-        <input id="streamURL" class="innerControls" type=text value=""/>
+        <div>
+            <span id="titleVideoName" ></span>
+        </div>
+      </div>
 
-        <label class="innerControls">
-          Enable streaming:
-          <input id="enableStreaming" type=checkbox checked/>
-        </label>
+      <div class="col-xs-5 table-responsive" style="height: 400px">  
+        <table class="table table-striped table-responsive col-xs-5" id="tableAds">
+            <tr>
+                <col width="30%">
+                <col width="30%">
+                <col width="20%">
+                <col width="20%">
+                <th>Name</th>
+                <th>Duration</th> 
+                <th>Time</th>
+                <th></th>
+            </tr>
+        </table>
 
-        <label class="innerControls">
-          Auto-recover media-errors:
-          <input id="autoRecoverError" type=checkbox checked/>
-        </label>
-
-        <label class="innerControls">
-          Enable worker for transmuxing:
-          <input id="enableWorker" type=checkbox checked/>
-        </label>
-
-        <label class="innerControls">
-          Dump transmuxed fMP4 data:
-          <input id="dumpfMP4" type=checkbox unchecked/>
-        </label>
-
-        <label class="innerControls">
-          Widevine DRM license-server URL:
-          <input id="widevineLicenseUrl" style="width: 50%"/>
-        </label>
-
-        <label class="innerControls">
-          Level-cap'ing (max limit):
-          <input id="levelCapping" style="width: 8em" type=number/>
-        </label>
-
-        <label class="innerControls">
-          Default audio-codec:
-          <input style="width: 8em" id="defaultAudioCodec"/>
-        </label>
-
-        <label class="innerControls">
-          Metrics history (max limit, -1 is unlimited):
-          <input id="limitMetrics" style="width: 8em" type=number/>
-        </label>
-
-        <label class="innerControls">
-          Player size:
-          <select id="videoSize" style="float:right;">
-            <option value="240">` (240p)</option>
-            <option value="384">Small (384p)</option>
-            <option value="480">Medium (480p)</option>
-            <option value="720" selected>Large (720p)</option>
-            <option value="1080">Huge (1080p)</option>
-          </select>
-        </label>
-
-        <label class="innerControls">
-          Current video-resolution:
-          <span id="currentResolution">/</span>
-        </label>
-
-        <label class="innerControls">
-          Permalink:&nbsp;
-          <span id="StreamPermalink" style="width: 50%"></span>
-        </label>
-
-      </div> -->
-
-      <video id="video" width="640" height="360" controls autoplay class="videoCentered" poster="Resources/videos/i1.jpg"></video>
+        <div align="center">
+          <input type="submit" name="insert" id="insert" class="btn btn-success" value="Play" onclick="playVideo()">
+        </div>
+      </div>
 
       <br>
 
       <canvas id="bufferedCanvas" height="15" class="videoCentered" onclick="onClickBufferedRange(event);"></canvas>
-
-     <!--  <br><br>
-
-      <label class="center">Status:</label>
-      <pre id="statusOut" class="center" style="white-space: pre-wrap;"></pre>
-
-      <label class="center">Error:</label>
-      <pre id="errorOut" class="center" style="white-space: pre-wrap;"></pre>
-
-      <div class="center" style="text-align: center;" id="toggleButtons">
-        <button type="button" class="btn btn-sm" onclick="toggleTab('playbackControlTab');">Playback</button>
-        <button type="button" class="btn btn-sm" onclick="toggleTab('qualityLevelControlTab');">Quality-levels</button>
-        <button type="button" class="btn btn-sm" onclick="toggleTab('audioTrackControlTab');">Audio-tracks</button>
-        <button type="button" class="btn btn-sm" onclick="toggleTab('statsDisplayTab');">Buffer &amp; Statistics</button>
-        <button type="button" class="btn btn-sm" onclick="toggleTab('metricsDisplayTab'); showMetrics();">Real-time metrics</button>
-      </div>
-
-      <div class="center" id='playbackControlTab'>
-        <h4>Playback</h4>
-        <center>
-            <p>
-              <button type="button" class="btn btn-sm btn-info" onclick="$('#video')[0].play()">Play</button>
-              <button type="button" class="btn btn-sm btn-info" onclick="$('#video')[0].pause()">Pause</button>
-            </p>
-
-            <p>
-              <button type="button" class="btn btn-sm btn-info" onclick="$('#video')[0].currentTime-=10">- 10 s</button>
-              <button type="button" class="btn btn-sm btn-info" onclick="$('#video')[0].currentTime+=10">+ 10 s</button>
-            </p>
-
-            <p>
-              <button type="button" class="btn btn-sm btn-info" onclick="$('#video')[0].currentTime=$('#seek_pos').val()">Seek to </button>
-              <input type="text" id='seek_pos' size="8" onkeydown="if(window.event.keyCode=='13'){$('#video')[0].currentTime=$('#seek_pos').val();}">
-            </p>
-
-            <p>
-              <button type="button" class="btn btn-xs btn-warning" onclick="hls.attachMedia($('#video')[0])">Attach media</button>
-              <button type="button" class="btn btn-xs btn-warning" onclick="hls.detachMedia()">Detach media</button>
-            </p>
-
-            <p>
-              <button type="button" class="btn btn-xs btn-warning" onclick="hls.startLoad()">Start loading</button>
-              <button type="button" class="btn btn-xs btn-warning" onclick="hls.stopLoad()">Stop loading</button>
-            </p>
-
-            <p>
-              <button type="button" class="btn btn-xs btn-warning" onclick="hls.recoverMediaError()">Recover media-error</button>
-            </p>
-
-            <p>
-              <button type="button" class="btn btn-xs btn-warning" onclick="createfMP4('audio');">Create audio-fmp4</button>
-              <button type="button" class="btn btn-xs btn-warning" onclick="createfMP4('video')">Create video-fmp4</button>
-            </p>
-        </center>
-
-      </div>
-
-      <div class="center" id='qualityLevelControlTab'>
-        <h4>Quality-levels</h4>
-        <center>
-            <table>
-                <tr>
-                  <td>
-                    <p>Currently played level:</p>
-                  </td>
-                  <td>
-                    <div id="currentLevelControl" style="display: inline;"></div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <p>Next level loaded:</p>
-                  </td>
-                  <td>
-                    <div id="nextLevelControl" style="display: inline;"></div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <p>Currently loaded level:</p>
-                  </td>
-                  <td>
-                    <div id="loadLevelControl" style="display: inline;"></div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <p>Cap-limit level (maximum):</p>
-                  </td>
-                  <td>
-                    <div id="levelCappingControl" style="display: inline;"></div>
-                  </td>
-                </tr>
-              </table>
-        </center>
-      </div> -->
-
-<!--       <div class="center" id='audioTrackControlTab'>
-        <h4>Audio-tracks</h4>
-        <table>
-          <tr>
-            <td>Current audio-track:</td>
-            <td width=10px>None selected</td>
-            <td> <div id="audioTrackControl" style="display: inline;"></div> </td>
-          </tr>
-        </table>
-      </div>
-
-      <div class="center" id='metricsDisplayTab'>
-        <h4>Real-time metrics</h4>
-        <div id="metricsButton">
-          <button type="button" class="btn btn-xs btn-info" onclick="$('#metricsButtonWindow').toggle();$('#metricsButtonFixed').toggle();windowSliding=!windowSliding; refreshCanvas()">toggle sliding/fixed window</button><br>
-          <div id="metricsButtonWindow">
-            <button type="button" class="btn btn-xs btn-info" onclick="timeRangeSetSliding(0)">window ALL</button>
-            <button type="button" class="btn btn-xs btn-info" onclick="timeRangeSetSliding(2000)">2s</button>
-            <button type="button" class="btn btn-xs btn-info" onclick="timeRangeSetSliding(5000)">5s</button>
-            <button type="button" class="btn btn-xs btn-info" onclick="timeRangeSetSliding(10000)">10s</button>
-            <button type="button" class="btn btn-xs btn-info" onclick="timeRangeSetSliding(20000)">20s</button>
-            <button type="button" class="btn btn-xs btn-info" onclick="timeRangeSetSliding(30000)">30s</button>
-            <button type="button" class="btn btn-xs btn-info" onclick="timeRangeSetSliding(60000)">60s</button>
-            <button type="button" class="btn btn-xs btn-info" onclick="timeRangeSetSliding(120000)">120s</button><br>
-            <button type="button" class="btn btn-xs btn-info" onclick="timeRangeZoomIn()">Window Zoom In</button>
-            <button type="button" class="btn btn-xs btn-info" onclick="timeRangeZoomOut()">Window Zoom Out</button><br>
-            <button type="button" class="btn btn-xs btn-info" onclick="timeRangeSlideLeft()"> <<< Window Slide </button>
-            <button type="button" class="btn btn-xs btn-info" onclick="timeRangeSlideRight()">Window Slide >>> </button><br>
-          </div>
-          <div id="metricsButtonFixed">
-            <button type="button" class="btn btn-xs btn-info" onclick="windowStart=$('#windowStart').val()">fixed window start(ms)</button>
-            <input type="text" id='windowStart' defaultValue="0" size="8" onkeydown="if(window.event.keyCode=='13'){windowStart=$('#windowStart').val();}">
-            <button type="button" class="btn btn-xs btn-info" onclick="windowEnd=$('#windowEnd').val()">fixed window end(ms)</button>
-            <input type="text" id='windowEnd' defaultValue="10000" size="8" onkeydown="if(window.event.keyCode=='13'){windowEnd=$('#windowEnd').val();}"><br>
-          </div>
-          <button type="button" class="btn btn-xs btn-success" onclick="goToMetrics()" style="font-size:18px">metrics link</button>
-          <button type="button" class="btn btn-xs btn-success" onclick="goToMetricsPermaLink()" style="font-size:18px">metrics permalink</button>
-          <button type="button" class="btn btn-xs btn-success" onclick="copyMetricsToClipBoard()" style="font-size:18px">copy metrics to clipboard</button>
-          <canvas id="bufferTimerange_c" width="640" height="100" style="border:1px solid #000000" onmousedown="timeRangeCanvasonMouseDown(event)" onmousemove="timeRangeCanvasonMouseMove(event)" onmouseup="timeRangeCanvasonMouseUp(event)" onmouseout="timeRangeCanvasonMouseOut(event);"></canvas>
-          <canvas id="bitrateTimerange_c" width="640" height="100" style="border:1px solid #000000;"></canvas>
-          <canvas id="bufferWindow_c" width="640" height="100" style="border:1px solid #000000" onmousemove="windowCanvasonMouseMove(event);"></canvas>
-          <canvas id="videoEvent_c" width="640" height="15" style="border:1px solid #000000;"></canvas>
-          <canvas id="loadEvent_c" width="640" height="15" style="border:1px solid #000000;"></canvas><br>
-        </div>
-      </div>
-
-      <div class="center" id='statsDisplayTab'>
-        <h4>Buffer &amp; Statistics</h4>
-        <label>Buffer state:</label>
-        <pre id="bufferedOut"></pre>
-        <label>General stats:</label>
-        <pre id='statisticsOut'></pre>
-      </div> -->
 
     </div>
 
@@ -325,6 +150,56 @@
     <script src="jsonpack.js"></script>
 
     <script>
+        $(document).ready(function(){
+            $('#1').click(function(e) {
+                var item = $(this);
+                var subMenuEl = item.parent().find('#ads-1');
+                selectAd(1);
+                var adname = $(this).attr('alt');
+                insertToTableAds(adname, subMenuEl.attr('alt'));
+            })
+            $('#2').click(function(e) {
+                var item = $(this);
+                var subMenuEl = item.parent().find('#ads-2');
+                var x = subMenuEl.attr('alt');
+                selectAd(2);
+                var adname = $(this).attr('alt');
+                insertToTableAds(adname, subMenuEl.attr('alt'));
+            })
+            $('#3').click(function(e) {
+                var item = $(this);
+                var subMenuEl = item.parent().find('#ads-3');
+                var x = subMenuEl.attr('alt');
+                selectAd(3);
+                var adname = $(this).attr('alt');
+                insertToTableAds(adname, subMenuEl.attr('alt'));
+            })
+            $('#4').click(function(e) {
+                var item = $(this);
+                var subMenuEl = item.parent().find('#ads-4');
+                var x = subMenuEl.attr('alt');
+                selectAd(4);
+                var adname = $(this).attr('alt');
+                insertToTableAds(adname, subMenuEl.attr('alt'));
+            })
+            $('#5').click(function(e) {
+                var item = $(this);
+                var subMenuEl = item.parent().find('#ads-5');
+                var x = subMenuEl.attr('alt');
+                selectAd(5);
+                var adname = $(this).attr('alt');
+                insertToTableAds(adname, subMenuEl.attr('alt'));
+            })
+            $('#6').click(function(e) {
+                var item = $(this);
+                var subMenuEl = item.parent().find('#ads-6');
+                var x = subMenuEl.attr('alt');
+                selectAd(6);
+                var adname = $(this).attr('alt');
+                insertToTableAds(adname, subMenuEl.attr('alt'));
+            })
+        });
+
       (function() {
         function loadScript(url, onLoad) {
           var s = document.createElement("script");
@@ -349,6 +224,11 @@
       var videoIndex = 1;
       var flagShowAd = 0;
 
+      function deleteRow(btn) {
+        var row = btn.parentNode.parentNode;
+        row.parentNode.removeChild(row);
+      }
+
       function currentVideo(n) {
         flagShowAd = 1;
         selectVideo(slideIndex = n);
@@ -359,6 +239,23 @@
           selectAd(slideIndex = n);
         }
       }
+      
+
+      function insertToTableAds(adName, adTime) {
+        // console.log(adTime);
+        var table = document.getElementById("tableAds");
+        var row = table.insertRow(2);
+
+        var cell1 = row.insertCell(0);
+        var cell2 = row.insertCell(1);
+        var cell3 = row.insertCell(2);
+        var cell4 = row.insertCell(3);
+
+        cell1.innerHTML = adName;
+        cell2.innerHTML = adTime;
+        cell3.innerHTML = cell3.innerHTML + "<input type='text' name='insert' id='insert' class='form-control' placeholder='s'>";
+        cell4.innerHTML = cell4.innerHTML + "<button tyep='button' name='remove_details' class='btn btn-danger btn-xs remove_details' id='2' onclick='deleteRow(this)'>Remove</button>";
+      }
 
       function selectAd(n) {
         var i;
@@ -368,13 +265,14 @@
             ads[i].className = ads[i].className.replace(" active", "");
         }
 
-        ads[n-1].className += " active";
+        ads[n-1].className += " active";    
       }
 
 
       function selectVideo(n) {
         var i;
         var videos = document.getElementsByClassName("video");
+        var listAds = document.getElementById("listAds");
 
         for (i = 0; i < videos.length; i++) {
             videos[i].className = videos[i].className.replace(" active", "");
@@ -383,9 +281,15 @@
         videos[n-1].className += " active";
         var imgVideo = document.getElementById("video");
         imgVideo.poster = videos[n-1].src;
+        listAds.style.pointerEvents = "fill";
       }
 
+
+
       function playVideo() {
+        
+
+
         var video = document.getElementById("video");
         var videoSrcHls = "http://127.0.0.1:9090/test.m3u8";
 
@@ -398,7 +302,6 @@
           });
         }
       }
-
 
     </script>
   </body>
