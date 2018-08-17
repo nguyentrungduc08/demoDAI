@@ -27,7 +27,6 @@
 
 
     <div class="container" id="listVideos">
-      <!-- <h4>List Videos</h4> -->
       <span class="label label-primary">List Videos</span>
       <div class="row">
         <div class="column">
@@ -59,10 +58,9 @@
     </div>
 
     <div class="container" id="listAds" style="pointer-events:none">
-      <!-- <h4>List Ads</h4> -->
       <span class="label label-success">List Ads</span>
       <div class="row">
-        <div class="column">
+        <div class="column" ads_id="fadfheawf">
           <!-- SẢN XUẤT PHIM QUẢNG CÁO NGẮN TVC MI BICH CHI LOGO -->
           <img class="demoAds cursor ads img-rounded" src="Resources/ads/1.jpg" style="width:100%" id="ads1" alt="ads-1" title="abc">
           <figcaption style="text-align: right;" alt="04:11" id="ads-1">0:31</figcaption>
@@ -93,9 +91,6 @@
         </div>
       </div>
 
-<!--       <div class="caption-container">
-        <p id="caption"></p>
-      </div> -->
     </div>
 
     <div>
@@ -161,7 +156,8 @@
                 var subMenuEl = item.parent().find('#ads-1');
                 selectAd(1);
                 var adname = $(this).attr('alt');
-                insertToTableAds(adname, subMenuEl.attr('alt'));
+                var adId = $(this).attr("ads_id");
+                insertToTableAds(adname, subMenuEl.attr('alt'), adId);
             })
             $('#ads2').click(function(e) {
                 var item = $(this);
@@ -252,9 +248,12 @@
         }
       }
 
-      function insertToTableAds(adName, adTime) {
+      function insertToTableAds(adName, adTime, adId) {
         var table = document.getElementById("tableAds");
         var row = table.insertRow(2);
+
+        $(row).addClass("ads_row");
+        $(row).attr("ads_id", "fasdfasf");
 
         var cell1 = row.insertCell(0);
         var cell2 = row.insertCell(1);
@@ -300,13 +299,13 @@
 
 
       function playVideo() {
-        alert(videoId);
+        // alert(videoId);
         var listAds = "";  
         var listTimes = document.getElementsByName("insertTime");
         
-        var te = $('#tableAds').html();
+        // var te = $('#tableAds').html();
         
-        console.log(te);
+        // console.log(te);
 
       //   for(i = 0; i < listTimes.length; i++) {
           
@@ -320,26 +319,31 @@
 
         // const Http = new XMLHttpRequest();
         // const url='https://jsonplaceholder.typicode.com/posts';
-        
-        const url='http://127.0.0.1:6655/daim3u8?vid=SdPtl76SdDpStwzl9W&ads=QMriw7wGaD3GqxCYVW:123,gQsiKleN5rTNLFHxjG:65';
-        HttpRequest.open("GET", url);
-        HttpRequest.send();
-        HttpRequest.onreadystatechange=(e)=>{
-        console.log("Response: " + HttpRequest.responseText)
-        }
+        // SdPtl76SdDpStwzl9W
+        // gQsiKleN5rTNLFHxjG
+        // QMriw7wGaD3GqxCYVW
+        const url='http://127.0.0.1:6655/daim3u8?vid=QszkiKwhg-lhw7WbRm&ads=SdPtl76SdDpStwzl9W:15,gQsiKleN5rTNLFHxjG:20,QMriw7wGaD3GqxCYVW:8';
+        // const url='http://127.0.0.1:9999/index.m3u8';
+        // HttpRequest.open("GET", url);
+        // HttpRequest.send();
+        // HttpRequest.onreadystatechange=(e)=>{
+        // console.log("Response: " + HttpRequest.responseText)
+        // }
 
         // var video = document.getElementById("video");
         // var videoSrcHls = "http://127.0.0.1:9090/test.m3u8";
         // var videoSrcHls = "http://localhost:6655/SOCJXaPWJEo/whls/vod/360/QszkiKwhg-lhw7WbRm/videoplayback-1.m3u8?authen=exp=1534392572~acl=/SOCJXaPWJEo/*~hmac=acbcd531087e8036cc456960b5c3fa3c"; -->
 
-        // if(Hls.isSupported()) {
-        //   var hls = new Hls();  
-        //   hls.loadSource(videoSrcHls);
-        //   hls.attachMedia(video);
-        //   hls.on(Hls.Events.MANIFEST_PARSED,function() {
-        //     video.play();
-        //   });
-        // }
+        var videoSrcHls = url;
+
+        if(Hls.isSupported()) {
+          var hls = new Hls();  
+          hls.loadSource(videoSrcHls);
+          hls.attachMedia(video);
+          hls.on(Hls.Events.MANIFEST_PARSED,function() {
+            video.play();
+          });
+        }
       } 
 
     </script>
