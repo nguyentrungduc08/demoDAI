@@ -30,28 +30,27 @@
       <span class="label label-primary">List Videos</span>
       <div class="row">
         <div class="column">
-          <img class="demoVideo cursor video img-rounded" src="Resources/videos/i1.jpg" style="width:100%" onclick="currentVideo(1)" alt="video 1" id="vid1">
+          <img class="demoVideo cursor video img-rounded" src="Resources/videos/i1.jpg" style="width:100%" onclick="currentVideo(1)" alt="video 1" id="vid1" name="CHO VỪA LÒNG EM | DUY MẠNH">
           <figcaption style="text-align: right;">4:56</figcaption>
         </div>
-
         <div class="column">
-          <img class="demoVideo cursor video img-rounded" src="Resources/videos/i2.jpg" style="width:100%" onclick="currentVideo(2)" alt="video 2" id="vid2">
+          <img class="demoVideo cursor video img-rounded" src="Resources/videos/i2.jpg" style="width:100%" onclick="currentVideo(2)" alt="video 2" id="vid2" name="Đắp Mộ Cuộc Tình - Quang Lập Bolero">
           <figcaption style="text-align: right;">04:11</figcaption>
         </div>
         <div class="column">
-          <img class="demoVideo cursor video img-rounded" src="Resources/videos/i3.jpg" style="width:100%" onclick="currentVideo(3)" alt="video 3" id="vid3">
+          <img class="demoVideo cursor video img-rounded" src="Resources/videos/i3.jpg" style="width:100%" onclick="currentVideo(3)" alt="video 3" id="vid3" name="Hoài Lâm - Trộm Nhìn Nhau">
           <figcaption style="text-align: right;">5:12</figcaption>
         </div>  
         <div class="column">
-          <img class="demoVideo cursor video img-rounded" src="Resources/videos/i4.jpg" style="width:100%" onclick="currentVideo(4)" alt="video 4" id="vid4">
+          <img class="demoVideo cursor video img-rounded" src="Resources/videos/i4.jpg" style="width:100%" onclick="currentVideo(4)" alt="video 4" id="vid4" name="Cát Bụi Cuộc Đời - Đạt Võ">
           <figcaption style="text-align: right;">5:31</figcaption>
         </div>
         <div class="column">
-          <img class="demoVideo cursor video img-rounded" src="Resources/videos/i5.jpg" style="width:100%" onclick="currentVideo(5)" alt="video 5" id="vid5">
+          <img class="demoVideo cursor video img-rounded" src="Resources/videos/i5.jpg" style="width:100%" onclick="currentVideo(5)" alt="video 5" id="vid5" name="video5">
           <figcaption style="text-align: right;">5:20</figcaption>
         </div>
         <div class="column">
-          <img class="demoVideo cursor video img-rounded" src="Resources/videos/i6.jpg" style="width:100%" onclick="currentVideo(6)" alt="video 6" id="vid6">
+          <img class="demoVideo cursor video img-rounded" src="Resources/videos/i6.jpg" style="width:100%" onclick="currentVideo(6)" alt="video 6" id="vid6" name="Thói Đời | Ca sĩ: Chế Linh & Đan Nguyên">
           <figcaption style="text-align: right;">3:55</figcaption>
         </div>
       </div>
@@ -90,28 +89,21 @@
           <figcaption style="text-align: right;" alt="00:00" id="ads-6">0:29</figcaption>
         </div>
       </div>
-
     </div>
 
     <div>
-      <br>
       <br>
     </div>
 
     <div class="main-container container">
       <div class="col-xs-7">  
         <video id="video" width="640" height="360" controls autoplay poster="Resources/videos/i1.jpg"></video>
-
         <br>
-
         <div style="height: 10px; background-color: red; width: 640px">
-            
         </div>
-
         <br>
-
         <div>
-            <span id="titleVideoName" ></span>
+            <b><span id="titleVideoName" >CHO VỪA LÒNG EM | DUY MẠNH</span></b>
         </div>
       </div>
 
@@ -133,22 +125,18 @@
           <input type="submit" name="insert" id="insert" class="btn btn-success" value="Play" onclick="playVideo()">
         </div>
       </div>
-
       <br>
-
       <canvas id="bufferedCanvas" height="15" class="videoCentered" onclick="onClickBufferedRange(event);"></canvas>
-
     </div>
 
     <footer>
-      <br><br><br><br><br><br>  
+      <br><br><br>
     </footer>
 
     <!-- Demo page required libs -->
     <script src="canvas.js"></script>
     <script src="metrics.js"></script>
     <script src="jsonpack.js"></script>
-
     <script>
         $(document).ready(function(){
             $('#ads1').click(function(e) {
@@ -201,10 +189,6 @@
             })
         });
 
-      $(document).ready(function(){
-
-      });  
-
       (function() {
         function loadScript(url, onLoad) {
           var s = document.createElement("script");
@@ -226,11 +210,9 @@
         });
       })();
       
-
       //Global variables
       var videoId = "-1";   
       var flagShowAd = 0;
-      var domain = "http://127.0.0.1:6565/";
 
       function deleteRow(btn) {
         var row = btn.parentNode.parentNode;
@@ -277,7 +259,6 @@
         ads[n-1].className += " active";    
       }
 
-
       function selectVideo(n) {
         var i;
         var videos = document.getElementsByClassName("video");
@@ -292,33 +273,16 @@
         var imgVideo = document.getElementById("video");
         imgVideo.poster = videos[n-1].src;
         listAds.style.pointerEvents = "fill";
+        document.getElementById("titleVideoName").innerHTML = videos[n-1].name;
       }
-
-    
-
-
 
       function playVideo() {
         // alert(videoId);
         var listAds = "";  
         var listTimes = document.getElementsByName("insertTime");
         
-        // var te = $('#tableAds').html();
-        
-        // console.log(te);
-
-      //   for(i = 0; i < listTimes.length; i++) {
-          
-      //     console.log(listTimes[i].value);
-      //   }
-   
         const HttpRequest = new XMLHttpRequest();
-        // const url = domain + "daim3u8?vid=SdPtl76SdDpStwzl9W&ads=QMriw7wGaD3GqxCYVW:123,gQsiKleN5rTNLFHxjG:65";
-
-        // console.log(url);
-
         // const Http = new XMLHttpRequest();
-        // const url='https://jsonplaceholder.typicode.com/posts';
         // SdPtl76SdDpStwzl9W
         // gQsiKleN5rTNLFHxjG
         // QMriw7wGaD3GqxCYVW
@@ -332,8 +296,6 @@
 
         // var video = document.getElementById("video");
         // var videoSrcHls = "http://127.0.0.1:9090/test.m3u8";
-        // var videoSrcHls = "http://localhost:6655/SOCJXaPWJEo/whls/vod/360/QszkiKwhg-lhw7WbRm/videoplayback-1.m3u8?authen=exp=1534392572~acl=/SOCJXaPWJEo/*~hmac=acbcd531087e8036cc456960b5c3fa3c"; -->
-
         var videoSrcHls = url;
 
         if(Hls.isSupported()) {
