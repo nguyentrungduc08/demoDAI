@@ -30,7 +30,7 @@
       <span class="label label-primary">List Videos</span>
       <div class="row">
         <div class="column">
-          <img class="demoVideo cursor video img-rounded" src="Resources/videos/i1.jpg" 
+          <img class="demoVideo cursor video img-rounded" src="https://img.youtube.com/vi/W8iBszF6E5g/0.jpg" 
             style="width:100%" onclick="currentVideo(1)" alt="video 1" id="vid1" 
             name="CHO VỪA LÒNG EM | DUY MẠNH" vi_id="QszkiKwhg-lhw7WbRm">
 
@@ -127,7 +127,8 @@
 
     <div class="main-container container">
       <div class="col-xs-7">  
-        <video id="video" width="640" height="360" controls autoplay poster="Resources/videos/i1.jpg"></video>
+        <video id="video" width="640" height="360" controls autoplay poster="Resources/videos/i1.jpg" style="display:none;"></video>
+        <img id="posterVideo" width="640" height="360" src="Resources/videos/i1.jpg" style="display:block;"> 
         <br>
         <div style="height: 10px; background-color: red; width: 640px">
         </div>
@@ -306,7 +307,12 @@
         ads[n-1].className += " active";    
       }
 
+      var _hls;
+
       function selectVideo(n) {
+        if (_hls) {
+          _hls.destroy();
+        }
         var i;
         var videos = document.getElementsByClassName("video");
         var listAds = document.getElementById("listAds");
@@ -317,8 +323,11 @@
 
         videos[n-1].className += " active";
         videoId = videos[n-1].id;
-        var imgVideo = document.getElementById("video");
-        imgVideo.poster = videos[n-1].src;
+        // document.getElementById("video").style.display = "block";
+        document.getElementById("video").style.display = "none";
+        var imgVideo = document.getElementById("posterVideo");
+        imgVideo.src = videos[n-1].src;
+        imgVideo.style.display = "block";
         listAds.style.pointerEvents = "fill";
         document.getElementById("titleVideoName").innerHTML = videos[n-1].name;
         keyMainVideo = videos[n-1].getAttribute("vi_id"); 
@@ -360,6 +369,16 @@
         }
       }
 
+      function stopPlayer() {
+        if(Hls.isSupported()) {
+          var hls = new Hls();  
+          hls.attachMedia(video);
+          hls.on(Hls.Events.MANIFEST_PARSED,function() {
+            video.stop();
+          });
+        }
+      }
+
       function playVideo() {
         // alert(keyMainVideo);
         // alert(videoId);
@@ -389,15 +408,20 @@
 
         sortTable();
 
+        // var hlsplayer = document.getElementById("video");
+        document.getElementById("posterVideo").style.display = "none";
+        document.getElementById("video").style.display = "block";
+        
+
         console.log("http://127.0.0.1:6655/daim3u8?vid=" + keyMainVideo + "&ads=" + listAds);
       
         var videoSrcHls = "http://127.0.0.1:6655/daim3u8?vid=" + keyMainVideo + "&ads=" + listAds;
 
         if(Hls.isSupported()) {
-          var hls = new Hls();  
-          hls.loadSource(videoSrcHls);
-          hls.attachMedia(video);
-          hls.on(Hls.Events.MANIFEST_PARSED,function() {
+          _hls = new Hls();  
+          _hls.loadSource(videoSrcHls);
+          _hls.attachMedia(video);
+          _hls.on(Hls.Events.MANIFEST_PARSED,function() {
             video.play();
           });
         }
